@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Area Pro</title>
+    <style>
+        :root { --primary: #007AFF; --bg: #F2F2F7; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica; 
+               background: var(--bg); display: flex; justify-content: center; padding-top: 50px; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+                width: 90%; max-width: 350px; text-align: center; }
+        h2 { margin-bottom: 20px; color: #1C1C1E; }
+        input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #C6C6C8; 
+                border-radius: 10px; font-size: 1rem; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: var(--primary); color: white; 
+                 border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
+        #result { margin-top: 25px; font-size: 1.4rem; color: var(--primary); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Circle Area</h2>
+        <input type="number" id="radius" placeholder="Enter radius (e.g. 5)" step="any">
+        <button onclick="calc()">Calculate</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calc() {
+            const r = document.getElementById('radius').value;
+            if (r && r > 0) {
+                const area = Math.PI * Math.pow(r, 2);
+                document.getElementById('result').innerHTML = `Area: ${area.toFixed(2)} units&sup2;`;
+            } else {
+                document.getElementById('result').innerText = "Enter a valid radius";
+            }
+        }
+    </script>
+</body>
+</html>
